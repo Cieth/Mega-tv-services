@@ -1,11 +1,15 @@
 .Basics {
   display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
-  justify-content: space-evenly;
-  justify-items: stretch;
   text-align: center;
   align-items: center;
-  min-height: 90vh;
+  .Basics_text {
+    font-size: 1rem;
+  }
   .Basics_input {
     display: flex;
     flex-direction: column;
@@ -13,12 +17,13 @@
     row-gap: 1rem;
     input {
       border: 1px solid black;
-      border-radius: 0.8rem;
+      border-radius: 0.2rem;
       height: 2.5rem;
       width: 15rem;
-      column-count: 1rem;
-      &:active {
-        margin: 1rem;
+      &::placeholder {
+        padding: 2rem;
+        text-align: left;
+        font-size: 0.8rem;
       }
     }
   }
@@ -27,6 +32,7 @@
   }
   .Basics_button {
     button {
+      margin-top: 1rem;
       color: white;
       width: 8rem;
       height: 2.2rem;
@@ -37,5 +43,13 @@
     }
   }
   @media (min-width: 1280px) {
+    .Basics_text {
+      font-size: 2rem;
+    }
+    .Basics_input {
+      input::placeholder {
+        font-size: 1rem;
+      }
+    }
   }
 }
