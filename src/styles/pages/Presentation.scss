@@ -1,0 +1,33 @@
+.Presentation {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  .Presentation_title {
+    color: rgb(3, 70, 164);
+    font-size: 1.6rem;
+  }
+  .Presentation_text {
+    min-width: 251px;
+  }
+  .Presentation_button {
+    button {
+      color: white;
+      width: 8rem;
+      height: 2.2rem;
+      border-radius: 0.3rem;
+      border: 1px solid rgb(3, 70, 164);
+      font-size: 0.6rem;
+      background-color: rgb(3, 70, 164);
+    }
+  }
+  @media (min-width: 1280px) {
+    .Presentation_text {
+      font-size: 1.5rem;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.Basics {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  .Basics_text {
+    font-size: 1rem;
+  }
+  .Basics_input {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    row-gap: 1rem;
+    input {
+      border: 1px solid black;
+      border-radius: 0.2rem;
+      height: 2.5rem;
+      width: 15rem;
+      &::placeholder {
+        padding: 2rem;
+        text-align: left;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .Basics_text {
+    min-width: 251px;
+  }
+  .Basics_button {
+    button {
+      margin-top: 1rem;
+      color: white;
+      width: 8rem;
+      height: 2.2rem;
+      border-radius: 0.3rem;
+      border: 1px solid rgb(3, 70, 164);
+      font-size: 0.6rem;
+      background-color: rgb(3, 70, 164);
+    }
+  }
+  @media (min-width: 1280px) {
+    .Basics_text {
+      font-size: 2rem;
+    }
+    .Basics_input {
+      input::placeholder {
+        font-size: 1rem;
+      }
+    }
+  }
+}
