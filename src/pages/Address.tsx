@@ -4,13 +4,14 @@ import { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { setAddress, setAptNumber } from '../features/slices/userSlice';
 import '../styles/pages/Address.scss';
+import { RootState } from '../app/store';
 const Adress = () => {
   interface dataI {
     address: string;
     apto: string;
   }
   const dispatch = useDispatch();
-  /*   const name = useSelector((state) => state.user.firstName) */
+  const name = useSelector((state: RootState) => state.user.firstName);
   const [data, setData] = useState<dataI>({
     address: '',
     apto: '',
@@ -28,7 +29,7 @@ const Adress = () => {
     <div className='Address'>
       <div className='Address_text'>
         <p>
-          Pleasure to meet you, NAME!
+          Pleasure to meet you, {name}!
           <br /> What is your install address ?
         </p>
       </div>
