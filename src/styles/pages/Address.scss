@@ -8,7 +8,7 @@
   text-align: center;
   align-items: center;
   .Address_text {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .Address_input {
     display: flex;
@@ -18,7 +18,7 @@
       border: 1px solid black;
       border-radius: 0.2rem;
       height: 2.5rem;
-      width: 15rem;
+      width: 10rem;
     }
     .AptoInput {
       border: 1px solid black;
@@ -49,11 +49,17 @@
       background-color: rgb(3, 70, 164);
     }
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 920px) {
     .Address_text {
       font-size: 2rem;
     }
     .Address_input {
+      .AddressInput {
+        border: 1px solid black;
+        border-radius: 0.2rem;
+        height: 2.5rem;
+        width: 20rem;
+      }
       input::placeholder {
         font-size: 1rem;
       }
