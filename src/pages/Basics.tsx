@@ -7,11 +7,14 @@ import { setFirstName, setLastName } from '../features/slices/userSlice';
 
 const Basics = () => {
   interface dataI {
-    name?: string;
-    lastName?: string;
+    name: string;
+    lastName: string;
   }
   const dispatch = useDispatch();
-  const [data, setData] = useState<dataI>({});
+  const [data, setData] = useState<dataI>({
+    name: '',
+    lastName: '',
+  });
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'name'
       ? setData({ ...data, name: e.target.value })
@@ -45,8 +48,8 @@ const Basics = () => {
         />
       </div>
       <div className='Basics_button'>
-        <Link to={'/basics'}>
-          <button onClick={handleClick}>LET'S DO IT</button>
+        <Link to={'/adress'}>
+          <button onClick={handleClick}>NEXT</button>
         </Link>
       </div>
     </div>
