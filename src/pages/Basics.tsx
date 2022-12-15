@@ -2,16 +2,25 @@ import { useState } from 'react';
 import '../styles/pages/Basics.scss';
 import { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setFirstName, setLastName } from '../features/slices/userSlice';
+
 const Basics = () => {
   interface dataI {
     name?: string;
     lastName?: string;
   }
+  const dispatch = useDispatch();
   const [data, setData] = useState<dataI>({});
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'name'
       ? setData({ ...data, name: e.target.value })
       : setData({ ...data, lastName: e.target.value });
+  };
+
+  const handleClick = () => {
+    dispatch(setFirstName(data.name));
+    dispatch(setLastName(data.lastName));
   };
   console.log(data);
   return (
@@ -37,7 +46,7 @@ const Basics = () => {
       </div>
       <div className='Basics_button'>
         <Link to={'/basics'}>
-          <button>LET'S DO IT</button>
+          <button onClick={handleClick}>LET'S DO IT</button>
         </Link>
       </div>
     </div>
