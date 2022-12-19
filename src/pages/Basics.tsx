@@ -4,6 +4,7 @@ import { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setFirstName, setLastName } from '../features/slices/userSlice';
+import Button from '../components/Button';
 
 const Basics = () => {
   interface dataI {
@@ -47,9 +48,9 @@ const Basics = () => {
           type='text'
         />
       </div>
-      <div className='Basics_button'>
-        <Link to={'/adress'}>
-          <button onClick={handleClick}>NEXT</button>
+      <div className='Basics_button' onClick={handleClick}>
+        <Link to={'/address'}>
+          <Button />
         </Link>
       </div>
     </div>

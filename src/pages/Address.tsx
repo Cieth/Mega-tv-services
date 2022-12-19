@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { setAddress, setAptNumber } from '../features/slices/userSlice';
 import '../styles/pages/Address.scss';
 import { RootState } from '../app/store';
+import Button from '../components/Button';
 const Adress = () => {
   interface dataI {
     address: string;
@@ -51,9 +52,9 @@ const Adress = () => {
           type='text'
         />
       </div>
-      <div className='Address_button'>
-        <Link to={'/adress'}>
-          <button onClick={handleClick}>NEXT</button>
+      <div className='Address_button' onClick={handleClick}>
+        <Link to={'/plan'}>
+          <Button />
         </Link>
       </div>
     </div>

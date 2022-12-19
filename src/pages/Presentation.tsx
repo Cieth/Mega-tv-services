@@ -1,5 +1,6 @@
 import '../styles/pages/Presentation.scss';
 import { Link } from 'react-router-dom';
+import Button from '../components/Button';
 const Presentation = () => {
   return (
     <div className='Presentation'>
@@ -11,7 +12,7 @@ const Presentation = () => {
       </div>
       <div className='Presentation_button'>
         <Link to={'/basics'}>
-          <button>LET'S DO IT</button>
+          <Button />
         </Link>
       </div>
     </div>

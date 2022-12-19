@@ -4,6 +4,7 @@ import './App.scss';
 import Presentation from './pages/Presentation';
 import Basics from './pages/Basics';
 import Adress from './pages/Address';
+import Plan from './pages/Plan';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Presentation />} />
         <Route path='/basics' element={<Basics />} />
-        <Route path='/adress' element={<Adress />} />
+        <Route path='/address' element={<Adress />} />
+        <Route path='/plan' element={<Plan />} />
       </Routes>
     </div>
   );

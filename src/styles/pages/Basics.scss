@@ -30,18 +30,7 @@
   .Basics_text {
     min-width: 251px;
   }
-  .Basics_button {
-    button {
-      margin-top: 1rem;
-      color: white;
-      width: 8rem;
-      height: 2.2rem;
-      border-radius: 0.3rem;
-      border: 1px solid rgb(3, 70, 164);
-      font-size: 0.6rem;
-      background-color: rgb(3, 70, 164);
-    }
-  }
+
   @media (min-width: 1280px) {
     .Basics_text {
       font-size: 2rem;
