@@ -1,9 +1,7 @@
-import React from 'react';
 import '../styles/components/Button.scss';
 import { useLocation } from 'react-router-dom';
 const Button = () => {
   const location = useLocation();
-  console.log(location.pathname);
 
   const getCurrentLocation = () => {
     switch (location.pathname) {
@@ -13,6 +11,10 @@ const Button = () => {
         return 'NEXT';
       case '/address':
         return 'YES!';
+      case '/plan':
+        return 'I AM READY!';
+      case '/suscribe':
+        return 'SUSCRIBE NOW!';
     }
   };
   const currentLocation = getCurrentLocation();
