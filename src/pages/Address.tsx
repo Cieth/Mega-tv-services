@@ -6,7 +6,7 @@ import { setAddress, setAptNumber } from '../features/slices/userSlice';
 import '../styles/pages/Address.scss';
 import { RootState } from '../app/store';
 import Button from '../components/Button';
-const Adress = () => {
+const Address = () => {
   interface dataI {
     address: string;
     apto: string;
@@ -40,7 +40,7 @@ const Adress = () => {
           onChange={handleChange}
           value={data.address}
           name={'address'}
-          placeholder='Address'
+          placeholder='STREET, ADDRESS, CITY, STATE'
           type='text'
         />
         <input
@@ -48,7 +48,7 @@ const Adress = () => {
           onChange={handleChange}
           value={data.apto}
           name={'apto'}
-          placeholder='Apto'
+          placeholder='APT #'
           type='text'
         />
       </div>
@@ -61,4 +61,4 @@ const Adress = () => {
   );
 };
 
-export default Adress;
+export default Address;
