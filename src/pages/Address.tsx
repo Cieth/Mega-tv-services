@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,18 @@ const Address = () => {
     address: string;
     apto: string;
   }
+  const [items,setItems] = useState()
+  const retrieveData = () => {
+    fetch('http://localhost:8080/show').then((data) => {
+      setItems(data)
+    }).then((data) => {
+      setItems(data)
+    })
+
+  useEffect(() => {
+    retrieveData();
+  }, []);
+
   const dispatch = useDispatch();
   const name = useSelector((state: RootState) => state.user.firstName);
   const [data, setData] = useState<dataI>({
