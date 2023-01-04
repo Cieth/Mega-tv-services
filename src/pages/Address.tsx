@@ -6,19 +6,28 @@ import { setAddress, setAptNumber } from '../features/slices/userSlice';
 import '../styles/pages/Address.scss';
 import { RootState } from '../app/store';
 import Button from '../components/Button';
+import axios from 'axios';
 const Address = () => {
   interface dataI {
     address: string;
     apto: string;
   }
-  const [items,setItems] = useState()
-  const retrieveData = () => {
-    fetch('http://localhost:8080/show').then((data) => {
-      setItems(data)
-    }).then((data) => {
-      setItems(data)
-    })
-
+  /*  type IBuilding = {
+    id?: string;
+    name: string;
+    address: string;
+    city: string;
+    state: string;
+    postal: string;
+    plans: [{}];
+  }
+  type GetBuilding = {
+    data : IBuilding[]
+  } */
+  const retrieveData = async () => {
+    const data = await axios.get<any>('http://localhost:8080/show');
+    console.log(data.data);
+  };
   useEffect(() => {
     retrieveData();
   }, []);
