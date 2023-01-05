@@ -1,52 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeEvent } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { setAddress, setAptNumber } from '../features/slices/userSlice';
 import '../styles/pages/Address.scss';
 import { RootState } from '../app/store';
 import Button from '../components/Button';
-import axios from 'axios';
+import { IBuilding } from '../types/IBuilding';
 const Address = () => {
+  const [fetched, setFetched] = useState<any>();
   interface dataI {
     address: string;
     apto: string;
   }
-  /*  type IBuilding = {
-    id?: string;
-    name: string;
-    address: string;
-    city: string;
-    state: string;
-    postal: string;
-    plans: [{}];
-  }
+
   type GetBuilding = {
-    data : IBuilding[]
-  } */
-  const retrieveData = async () => {
-    const data = await axios.get<any>('http://localhost:8080/show');
-    console.log(data.data);
+    data: IBuilding[];
   };
+
+  const retrieveData = async () => {
+    await axios.get<GetBuilding>('http://localhost:8080/show').then((data) => {
+      setFetched(data.data.data);
+    });
+  };
+
   useEffect(() => {
     retrieveData();
   }, []);
 
   const dispatch = useDispatch();
+
   const name = useSelector((state: RootState) => state.user.firstName);
+
   const [data, setData] = useState<dataI>({
     address: '',
     apto: '',
   });
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'address'
       ? setData({ ...data, address: e.target.value })
       : setData({ ...data, apto: e.target.value });
   };
+
   const handleClick = () => {
     dispatch(setAddress(data.address));
     dispatch(setAptNumber(data.apto));
   };
+
   return (
     <div className='Address'>
       <div className='Address_text'>
@@ -73,6 +75,17 @@ const Address = () => {
           type='text'
         />
       </div>
+      {fetched ? (
+        fetched.map((x: IBuilding) => {
+          return (
+            <>
+              <div key={x.id}>{x.city}</div>
+            </>
+          );
+        })
+      ) : (
+        <></>
+      )}
       <div className='Address_button' onClick={handleClick}>
         <Link to={'/plan'}>
           <Button />
