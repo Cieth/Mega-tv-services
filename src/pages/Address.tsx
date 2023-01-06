@@ -8,6 +8,7 @@ import '../styles/pages/Address.scss';
 import { RootState } from '../app/store';
 import Button from '../components/Button';
 import { IBuilding } from '../types/IBuilding';
+import AddressCard from '../components/AddressCard';
 const Address = () => {
   const [fetched, setFetched] = useState<any>();
   interface dataI {
@@ -76,11 +77,18 @@ const Address = () => {
         />
       </div>
       {fetched ? (
-        fetched.map((x: IBuilding) => {
+        fetched.map((item: IBuilding) => {
           return (
-            <>
-              <div key={x.id}>{x.city}</div>
-            </>
+            <AddressCard
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              plans={item.plans}
+              address={item.address}
+              city={item.city}
+              state={item.state}
+              postal={item.postal}
+            />
           );
         })
       ) : (
