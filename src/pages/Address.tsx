@@ -11,6 +11,7 @@ import { IBuilding } from '../types/IBuilding';
 import AddressCard from '../components/AddressCard';
 const Address = () => {
   const [fetched, setFetched] = useState<any>();
+  const [click, setClick] = useState<boolean>(false);
   interface dataI {
     address: string;
     apto: string;
@@ -60,6 +61,8 @@ const Address = () => {
       </div>
       <div className='Address_input'>
         <input
+          onClick={() => setClick(true)}
+          onBlur={() => setClick(false)}
           className='AddressInput'
           onChange={handleChange}
           value={data.address}
@@ -76,19 +79,20 @@ const Address = () => {
           type='text'
         />
       </div>
-      {fetched ? (
-        fetched.map((item: IBuilding) => {
+      {click ? (
+        fetched.map((item: IBuilding, i: number) => {
           return (
-            <AddressCard
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              plans={item.plans}
-              address={item.address}
-              city={item.city}
-              state={item.state}
-              postal={item.postal}
-            />
+            <div key={i}>
+              <AddressCard
+                id={item.id}
+                name={item.name}
+                plans={item.plans}
+                address={item.address}
+                city={item.city}
+                state={item.state}
+                postal={item.postal}
+              />
+            </div>
           );
         })
       ) : (
