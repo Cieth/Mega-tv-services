@@ -8,6 +8,7 @@ interface initialStateT {
   plan: string;
   email: string;
   phoneNumber: string;
+  idBuilding: string;
 }
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   plan: '',
   email: '',
   phoneNumber: '',
+  idBuilding: '',
 };
 
 const userSlice = createSlice({
@@ -45,6 +47,9 @@ const userSlice = createSlice({
     setPhoneNumber: (state, action: PayloadAction<string>) => {
       state.phoneNumber = action.payload;
     },
+    setIdBuilding: (state, action: PayloadAction<string>) => {
+      state.idBuilding = action.payload;
+    },
   },
 });
 
@@ -56,6 +61,7 @@ export const {
   setPlan,
   setEmail,
   setPhoneNumber,
+  setIdBuilding,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { IBuilding } from '../types/IBuilding';
 import { setAddress } from '../features/slices/userSlice';
 import { useDispatch } from 'react-redux';
