@@ -12,6 +12,11 @@ import AddressCard from '../components/AddressCard';
 const Address = () => {
   const [fetched, setFetched] = useState<any>();
   const [click, setClick] = useState<boolean>(false);
+  const handleBlur = () => {
+    setTimeout(() => {
+      setClick(false);
+    }, 100);
+  };
   interface dataI {
     address: string;
     apto: string;
@@ -34,21 +39,13 @@ const Address = () => {
   const dispatch = useDispatch();
 
   const name = useSelector((state: RootState) => state.user.firstName);
-
-  const [data, setData] = useState<dataI>({
-    address: '',
-    apto: '',
-  });
+  const address = useSelector((state: RootState) => state.user.address);
+  const aptNumber = useSelector((state: RootState) => state.user.aptNumber);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'address'
-      ? setData({ ...data, address: e.target.value })
-      : setData({ ...data, apto: e.target.value });
-  };
-
-  const handleClick = () => {
-    dispatch(setAddress(data.address));
-    dispatch(setAptNumber(data.apto));
+      ? dispatch(setAddress(e.target.value))
+      : dispatch(setAptNumber(e.target.value));
   };
 
   return (
@@ -62,10 +59,10 @@ const Address = () => {
       <div className='Address_input'>
         <input
           onClick={() => setClick(true)}
-          onBlur={() => setClick(false)}
+          onBlur={handleBlur}
           className='AddressInput'
           onChange={handleChange}
-          value={data.address}
+          value={address}
           name={'address'}
           placeholder='STREET, ADDRESS, CITY, STATE'
           type='text'
@@ -73,7 +70,7 @@ const Address = () => {
         <input
           className='AptoInput'
           onChange={handleChange}
-          value={data.apto}
+          value={aptNumber}
           name={'apto'}
           placeholder='APT #'
           type='text'
@@ -98,7 +95,7 @@ const Address = () => {
       ) : (
         <></>
       )}
-      <div className='Address_button' onClick={handleClick}>
+      <div className='Address_button'>
         <Link to={'/plan'}>
           <Button />
         </Link>
