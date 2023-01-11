@@ -2,11 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setPlan } from '../features/slices/userSlice';
 import '../styles/components/Card.scss';
-interface card {
-  plan: string;
-}
 
-const Card = ({ plan }: card) => {
+const Card = ({ plan }: any) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(setPlan(plan));

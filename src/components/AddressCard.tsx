@@ -1,10 +1,13 @@
-import { IBuilding } from '../types/IBuilding';
-import { setAddress } from '../features/slices/userSlice';
 import { useDispatch } from 'react-redux';
-const AddressCard = ({ id, name, address, state, postal }: IBuilding) => {
+
+import { setAddress, setIdBuilding } from '../features/slices/userSlice';
+import { IBuilding } from '../types/IBuilding';
+const AddressCard = ({ _id, name, address, state, postal }: IBuilding) => {
   const dispatch = useDispatch();
+
   const handleClick = () => {
     dispatch(setAddress(address));
+    dispatch(setIdBuilding(_id));
   };
   return (
     <div

@@ -17,10 +17,6 @@ const Address = () => {
       setClick(false);
     }, 100);
   };
-  interface dataI {
-    address: string;
-    apto: string;
-  }
 
   type GetBuilding = {
     data: IBuilding[];
@@ -76,12 +72,12 @@ const Address = () => {
           type='text'
         />
       </div>
-      {click ? (
+      {click && fetched ? (
         fetched.map((item: IBuilding, i: number) => {
           return (
             <div key={i}>
               <AddressCard
-                id={item.id}
+                _id={item._id}
                 name={item.name}
                 plans={item.plans}
                 address={item.address}

@@ -1,12 +1,28 @@
 import React from 'react';
 import '../styles/components/Cards.scss';
+import { IBuilding } from '../types/IBuilding';
 import Card from './Card';
-const Cards = () => {
+
+interface IBuild {
+  building: IBuilding[];
+}
+
+const Cards = ({ building }: IBuild) => {
+  const plans = building && building[0].plans;
   return (
     <>
       <form className='Cards_body'>
-        <Card plan={'Basic'} />
-        <Card plan={'Premium'} />
+        {plans ? (
+          plans.map((x: any) => {
+            return (
+              <>
+                <Card plan={x.label} />
+              </>
+            );
+          })
+        ) : (
+          <></>
+        )}
       </form>
     </>
   );
