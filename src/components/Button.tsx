@@ -1,6 +1,9 @@
 import '../styles/components/Button.scss';
 import { useLocation } from 'react-router-dom';
-const Button = () => {
+type iButton = {
+  address?: string;
+};
+const Button = ({ address }: iButton) => {
   const location = useLocation();
 
   const getCurrentLocation = () => {
@@ -20,7 +23,9 @@ const Button = () => {
   const currentLocation = getCurrentLocation();
   return (
     <div className='Basics_button'>
-      <button>{currentLocation}</button>
+      <button disabled={address !== '' ? false : true}>
+        {currentLocation}
+      </button>
     </div>
   );
 };

@@ -12,10 +12,12 @@ const Basics = () => {
     lastName: string;
   }
   const dispatch = useDispatch();
+
   const [data, setData] = useState<dataI>({
     name: '',
     lastName: '',
   });
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.target.name === 'name'
       ? setData({ ...data, name: e.target.value })
@@ -26,7 +28,6 @@ const Basics = () => {
     dispatch(setFirstName(data.name));
     dispatch(setLastName(data.lastName));
   };
-  console.log(data);
   return (
     <div className='Basics'>
       <div className='Basics_text'>

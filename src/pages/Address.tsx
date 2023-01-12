@@ -12,6 +12,7 @@ import AddressCard from '../components/AddressCard';
 const Address = () => {
   const [fetched, setFetched] = useState<any>();
   const [click, setClick] = useState<boolean>(false);
+
   const handleBlur = () => {
     setTimeout(() => {
       setClick(false);
@@ -93,7 +94,7 @@ const Address = () => {
       )}
       <div className='Address_button'>
         <Link to={'/plan'}>
-          <Button />
+          <Button address={address} />
         </Link>
       </div>
     </div>
